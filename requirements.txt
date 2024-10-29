@@ -1,0 +1,2 @@
+pytr>=0.2.1
+yattag
