@@ -40,11 +40,12 @@ class HIBISCUS:
  #       self.universal_filepath = universal_filepath
 
         requests_session = session()
-        if self.tr._weblogin:
-            requests_session.headers = self.tr._default_headers_web
-        else:
-            requests_session.headers = self.tr._default_headers
-        self.session = FuturesSession(max_workers=1, session=requests_session)
+        if tr is not None:
+            if self.tr._weblogin:
+                requests_session.headers = self.tr._default_headers_web
+            else:
+                requests_session.headers = self.tr._default_headers
+            self.session = FuturesSession(max_workers=1, session=requests_session)
         self.futures = []
 
         self.docs_request = 0
@@ -150,7 +151,7 @@ class HIBISCUS:
                 print("ID", i["id"])
                 status = self.getSection(i["details"]["sections"],["Übersicht","data","Status","detail", "functionalStyle" ])
                 if status not in ["PENDING","EXECUTED","CANCELED"]:
-                    self.log.error(f'Unknown status {i["status"]}')
+                    self.log.error(f'Unknown status {i["status"]} {status} ID: {i["id"]}')
                     continue
                 if status == "CANCELED":
                     continue
