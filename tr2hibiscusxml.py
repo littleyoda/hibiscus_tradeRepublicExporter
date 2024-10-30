@@ -72,6 +72,7 @@ def get_main_parser():
     parser_dl_docs.add_argument(
         '--last-days', help='Number of last days to include (use 0 get all days)', metavar='DAYS', default=0, type=int
     )
+    parser_dl_docs.add_argument('--save-details', help='Save each transaction as json', action='store_true')
     parser_dl_docs.add_argument('--include-pending', help='Incl. Pending Transactions', action='store_true')
     return parser
 
@@ -117,7 +118,8 @@ def main():
             login(phone_no=args.phone_no, pin=args.pin, web=not args.applogin),
             args.output,
             since_timestamp=since_timestamp,
-            include_pending=args.include_pending
+            include_pending=args.include_pending,
+            save_transcations=args.save_details
         )   
         asyncio.get_event_loop().run_until_complete(dl.dl_loop())
     else:

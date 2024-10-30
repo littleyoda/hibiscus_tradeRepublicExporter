@@ -20,7 +20,8 @@ class HIBISCUS:
         tr,
         output_path,
         since_timestamp,
-        include_pending
+        include_pending,
+        save_transcations
     ):
         '''
         tr: api object
@@ -35,6 +36,7 @@ class HIBISCUS:
         self.history_file = Path(os.path.join(self.output_path, history_file))
 #        self.filename_fmt = filename_fmt
         self.since_timestamp = since_timestamp
+        self.save_transcations = save_transcations
  #       self.universal_filepath = universal_filepath
 
         requests_session = session()
@@ -96,9 +98,10 @@ class HIBISCUS:
             event['details'] = response
             if "amount" in event:
                 kontobewegungen.append(event)
-#                jsonfile = os.path.join(self.output_path, "_" + event["id"])
-                # with open(jsonfile, mode='w', encoding='utf-8') as output_file:
-                #     json.dump(event, output_file)
+                if self.save_transcations:
+                    jsonfile = os.path.join(self.output_path, "_" + event["id"])
+                    with open(jsonfile, mode='w', encoding='utf-8') as output_file:
+                        json.dump(event, output_file)
             self.tl.received_detail += 1
             if self.tl.received_detail == self.tl.requested_detail:
                 break
