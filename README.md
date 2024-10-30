@@ -13,7 +13,7 @@ Eine funktionierte Python-Umgebung muss installiert sein.
 ```
 git clone https://github.com/littleyoda/hibiscus_tradeRepublicExporter.git
 cd hibiscus_tradeRepublicExporter
-python3 -v venv venv
+python3 -m venv venv
 pip install -r requirements.txt
 ```
 
