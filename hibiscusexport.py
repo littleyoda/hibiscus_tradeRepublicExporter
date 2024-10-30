@@ -243,7 +243,7 @@ class HIBISCUS:
             newline = '\r\n'
         )
 
-        xmlfile = os.path.join(self.output_path, "hibiscus-"+ datetime.now().isoformat()[0:19] + ".xml")
+        xmlfile = os.path.join(self.output_path, "hibiscus-"+ datetime.now().isoformat()[0:19].replace(":",".") + ".xml")
 
         print(f"Transactions to be saved: {nr}")   
         if nr > 0:     
