@@ -222,12 +222,12 @@ class HIBISCUS:
                     comment = ""
                     if self.getSection(i["details"]["sections"],["Vorteile", "data", "", "detail"]):
                         e = self.getSection(i["details"]["sections"],["Vorteile", "data", "", "detail"])
-                        comment += f"{e["title"]} {e["subtitle"]} {e["amount"]}"
+                        comment += f'{e["title"]} {e["subtitle"]} {e["amount"]}'
                         
                     if self.getSection(i["details"]["sections"],["Transaktion"]):
                         isin = self.getSection(i["details"]["sections"][0],["action"])
                         if (isin is not None and isin.get("type","") == "instrumentDetail"):
-                            comment += f"{isin["payload"]}\n"
+                            comment += f'{isin["payload"]}\n'
                         count = self.getSection(i["details"]["sections"],["Transaktion", "data", "Anteile","detail","text"])
                         preis = self.getSection(i["details"]["sections"],["Transaktion", "data", "Anteilspreis","detail","text"])
                         gesamt = self.getSection(i["details"]["sections"],["Transaktion", "data", "Gesamt","detail","text"])
