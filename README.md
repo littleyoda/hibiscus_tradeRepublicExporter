@@ -29,3 +29,6 @@ python3 tr2hibiscusxml.py  hibiscus --last-days 14 hibiscus/
 ```
 Dieser Aufruf ruft die Transaktionen der letzten 14 Tage ab und speichert neue Transaktion als XML-Datei in das Unterverzeichnis hibiscus. Die erstellte XML-Datei kann dann über ["Umsätze Importieren"](https://www.willuhn.de/wiki/doku.php?id=handbuch:umsaetze) importiert werden.
 
+# Bekannte Probleme
+* Fondsanteile, die aus dem Cashbank bezahlt werden, erscheinen als "normale" Transaktion. Diese Transaktionen müssen per Hand auf 0 Euro gesetzt werden und in der Kontoübersicht, muss der [Saldo neuberechnet](https://www.willuhn.de/wiki/doku.php?id=support:faq&s[]=salden&s[]=neu&s[]=berechnen#zwischensummen_salden_der_umsaetze_falsch) werden.
+
