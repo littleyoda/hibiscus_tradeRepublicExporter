@@ -3,9 +3,7 @@
 Dieses Skript ruft die Transaktion eines Trade Republic Kontos ab und wandelt so in das [Hibiscus](https://www.willuhn.de/products/hibiscus/) Format um. Die Transaktionen können über ["Umsätze Importieren"](https://www.willuhn.de/wiki/doku.php?id=handbuch:umsaetze) importiert werden.
 Depotumsätze werden nicht unterstützt.
 
-Das ganze Skript ist ein Proof of Concept. Ich habe nicht die Lust und die Resourcen, um das Skript großartig weiterzuentwickeln.
-
-Ich stelle es aber trotzdem zur Verfügung, weil es für mich funktioniert.
+Das ganze Skript ist ein Proof of Concept. Ich habe nicht die Lust und die Resourcen, um das Skript großartig weiterzuentwickeln. Ich stelle es aber trotzdem zur Verfügung, weil es für mich funktioniert und somit auch für andere nutzlich sein kann.
 
 # Installation
 Eine funktionierte Python-Umgebung muss installiert sein.
