@@ -150,8 +150,11 @@ class HIBISCUS:
                 # Check for Pending
                 print("ID", i["id"])
                 status = self.getSection(i["details"]["sections"],["Übersicht","data","Status","detail", "functionalStyle" ])
-                if status not in ["PENDING","EXECUTED","CANCELED"]:
+                if status not in ["PENDING","EXECUTED","CANCELED","CREATED"]:
                     self.log.error(f'Unknown status {i["status"]} {status} ID: {i["id"]}')
+                    debugfile = os.path.join(self.output_path, "debug-"+ i["id"].replace(":",".") + ".xml")
+                    with open(debugfile, mode='w', encoding='utf-8') as output_file:
+                        json.dump(i, output_file)
                     continue
                 if status == "CANCELED":
                     continue
