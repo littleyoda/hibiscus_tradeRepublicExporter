@@ -125,6 +125,7 @@ def main():
         asyncio.set_event_loop(loop)
         try:
             asyncio.run(dl.dl_loop())
+            print("Finish")
         except KeyboardInterrupt:
             pass   
    #     asyncio.get_event_loop().run_until_complete(dl.dl_loop())
