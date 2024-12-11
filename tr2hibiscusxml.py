@@ -121,7 +121,13 @@ def main():
             include_pending=args.include_pending,
             save_transcations=args.save_details
         )   
-        asyncio.get_event_loop().run_until_complete(dl.dl_loop())
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            asyncio.run(dl.dl_loop())
+        except KeyboardInterrupt:
+            pass   
+   #     asyncio.get_event_loop().run_until_complete(dl.dl_loop())
     else:
         parser.print_help()
 
