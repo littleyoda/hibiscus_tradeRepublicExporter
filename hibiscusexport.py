@@ -95,6 +95,9 @@ class HIBISCUS:
             if subscription['type'] != 'timelineDetailV2':
                 self.log.warning(f"unmatched subscription of type '{subscription['type']}':\n{preview(response)}")
                 continue
+            if response['id'] not in self.tl.timeline_events:
+                self.log.warning(f"ID {response['id']} not found in timeline!")
+                continue
             event =  self.tl.timeline_events[response['id']]
             event['details'] = response
             if "amount" in event:
@@ -107,7 +110,7 @@ class HIBISCUS:
             if self.tl.received_detail == self.tl.requested_detail:
                 break
 
-        self.log.error('Received all details')
+        self.log.info('Received all details')
         self.processKontobewegungen(kontobewegungen)
         exit(0)
 
